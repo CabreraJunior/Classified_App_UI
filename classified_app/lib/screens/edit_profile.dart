@@ -71,7 +71,8 @@ class EditProfileScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   TextButton(
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, loginPage);
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, loginPage, (route) => false);
                       },
                       child: const Text(
                         "Logout",

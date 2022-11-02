@@ -50,7 +50,6 @@ class EditAdScreen extends StatelessWidget {
             SizedBox(
               height: 100,
               width: double.infinity,
-              //color: Colors.green,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: data["images"].length,

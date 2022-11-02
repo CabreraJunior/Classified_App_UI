@@ -8,7 +8,7 @@ class ImageViewerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [
+      appBar: AppBar(automaticallyImplyLeading: false, actions: [
         IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -22,6 +22,7 @@ class ImageViewerScreen extends StatelessWidget {
       body: Center(
         child: CarouselSlider.builder(
           options: CarouselOptions(
+            height: 400,
             viewportFraction: 1,
           ),
           itemCount: data["images"].length,

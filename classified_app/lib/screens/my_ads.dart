@@ -3,15 +3,10 @@ import 'package:classified_app/data/ads_data.dart';
 import 'package:classified_app/navigation/const_routes.dart';
 import 'package:flutter/material.dart';
 
-class MyAdsScreen extends StatefulWidget {
+class MyAdsScreen extends StatelessWidget {
   const MyAdsScreen({super.key});
 
-  @override
-  State<MyAdsScreen> createState() => _MyAdsScreenState();
-}
-
-class _MyAdsScreenState extends State<MyAdsScreen> {
-  List _obtainAds() {
+  _obtainAds() {
     List result = [];
     for (var element in ads) {
       if (element["createdBy"] == "Abi") {
@@ -34,7 +29,7 @@ class _MyAdsScreenState extends State<MyAdsScreen> {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, editAdPage,
+                  Navigator.pushNamed(context, editAdPage,
                       arguments: userAds[index]);
                 },
                 child: Custom2(

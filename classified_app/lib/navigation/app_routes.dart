@@ -17,11 +17,9 @@ class RouteGenerator {
 
     switch (settings.name) {
       case loginPage:
-        return MaterialPageRoute(
-            builder: (_) => const SafeArea(child: LoginScreen()));
+        return MaterialPageRoute(builder: (_) => LoginScreen());
       case registerPage:
-        return MaterialPageRoute(
-            builder: (_) => const SafeArea(child: RegisterScreen()));
+        return MaterialPageRoute(builder: (_) => RegisterScreen());
       case homePage:
         return MaterialPageRoute(builder: (_) => HomeScreen());
       case settingsPage:

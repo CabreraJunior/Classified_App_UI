@@ -1,9 +1,19 @@
+import 'package:url_launcher/url_launcher.dart';
 import 'package:classified_app/navigation/const_routes.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final dynamic data;
   const ProductDetailScreen({super.key, required this.data});
+
+  _openURL(url) async {
+    url = Uri.parse(url);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      debugPrint("Error");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +41,7 @@ class ProductDetailScreen extends StatelessWidget {
             const SizedBox(height: 12),
             GestureDetector(
               onTap: () {
-                Navigator.pushReplacementNamed(context, imageViewerPage,
-                    arguments: data);
+                Navigator.pushNamed(context, imageViewerPage, arguments: data);
               },
               child: Image.network(
                 data["images"][0],
@@ -85,7 +94,9 @@ class ProductDetailScreen extends StatelessWidget {
                 height: 50,
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _openURL('tel:+97798345348734');
+                    },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xfff25723)),
                     child: const Text(

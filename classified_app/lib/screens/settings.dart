@@ -1,9 +1,19 @@
 import 'package:classified_app/data/ads_data.dart';
 import 'package:classified_app/navigation/const_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
+
+  _openURL(url) async {
+    url = Uri.parse(url);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      debugPrint("Error");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +108,9 @@ class SettingsScreen extends StatelessWidget {
                     width: 22,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _openURL("https://appmaking.com/about");
+                    },
                     child: const Text(
                       "About us",
                       style: TextStyle(
@@ -123,7 +135,9 @@ class SettingsScreen extends StatelessWidget {
                     width: 22,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _openURL("https://appmaking.com/contact");
+                    },
                     child: const Text(
                       "Contact us",
                       style: TextStyle(
