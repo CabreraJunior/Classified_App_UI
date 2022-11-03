@@ -17,17 +17,17 @@ class RouteGenerator {
 
     switch (settings.name) {
       case loginPage:
-        return MaterialPageRoute(builder: (_) => LoginScreen());
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
       case registerPage:
-        return MaterialPageRoute(builder: (_) => RegisterScreen());
+        return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case homePage:
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case settingsPage:
-        return MaterialPageRoute(builder: (_) => SettingsScreen());
+        return MaterialPageRoute(builder: (_) => const SettingsScreen());
       case editProfilePage:
         return MaterialPageRoute(builder: (_) => EditProfileScreen());
       case myAdsPage:
-        return MaterialPageRoute(builder: (_) => MyAdsScreen());
+        return MaterialPageRoute(builder: (_) => const MyAdsScreen());
       case editAdPage:
         return MaterialPageRoute(builder: (_) => EditAdScreen(data: args));
       case productDetailPage:

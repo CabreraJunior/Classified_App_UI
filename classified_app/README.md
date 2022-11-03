@@ -1,16 +1,23 @@
 # classified_app
+Classified App Task - Flutter ITK
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Login Screen
+![Screen 1](./classified_app/screenshots/screen_1.png)
+## Register Screen
+![Screen 2](./classified_app/screenshots/screen_2.png)
+## Home Screen
+![Screen 3](./classified_app/screenshots/screen_3.png)
+## Settings Screen
+![Screen 4](./classified_app/screenshots/screen_4.png)
+## Edit Profile Screen
+![Screen 5](./classified_app/screenshots/screen_5.png)
+## My Ads Screen
+![Screen 6](./classified_app/screenshots/screen_6.png)
+## Edit Ads Screen
+![Screen 7](./classified_app/screenshots/screen_7.png)
+## Product Detail Screen
+![Screen 8](./classified_app/screenshots/screen_8.png)
+## Create Ad Screen
+![Screen 9](./classified_app/screenshots/screen_9.png)
+## Image Viewer Screen
+![Screen 10](./classified_app/screenshots/screen_10.png)
