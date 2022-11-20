@@ -4,9 +4,9 @@ class Custom1 extends StatelessWidget {
   final String name;
   final num price;
   final String description;
-  final String image;
+  List? image;
 
-  const Custom1(
+  Custom1(
       {super.key,
       required this.name,
       required this.price,
@@ -15,6 +15,7 @@ class Custom1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    image ??= ["assets/noimg.jpg"];
     return Container(
       margin: const EdgeInsets.all(4),
       child: Stack(
@@ -23,7 +24,10 @@ class Custom1 extends StatelessWidget {
             height: double.infinity,
             width: double.infinity,
             child: Image.network(
-              image,
+              image![0],
+              errorBuilder: (context, error, stackTrace) {
+                return Image.asset("assets/noimg.jpg");
+              },
               fit: BoxFit.cover,
             ),
           ),

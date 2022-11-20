@@ -1,10 +1,11 @@
 import 'package:classified_app/custom_widgets/custom1.dart';
 import 'package:classified_app/data/ads_data.dart';
 import 'package:classified_app/navigation/const_routes.dart';
+import 'package:classified_app/services/ads_service.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  final dynamic _data = ads;
+  //final dynamic _data = ads;
   const HomeScreen({super.key});
 
   @override
@@ -23,25 +24,36 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       backgroundColor: Colors.white,
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, childAspectRatio: 0.7),
-        itemCount: _data.length,
-        itemBuilder: ((context, index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, productDetailPage,
-                  arguments: _data[index]);
-            },
-            child: Custom1(
-              name: _data[index]["title"],
-              price: _data[index]["price"],
-              description: _data[index]["description"],
-              image: _data[index]["images"][0],
-            ),
-          );
-        }),
-      ),
+      body: FutureBuilder(
+          future: AdService().fetchAds(context),
+          builder: ((context, snapshot) {
+            if (snapshot.hasData) {
+              var fetchedAds = snapshot.data!;
+              return GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, childAspectRatio: 0.7),
+                itemCount: fetchedAds["data"].length,
+                itemBuilder: ((context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, productDetailPage,
+                          arguments: fetchedAds["data"][index]);
+                    },
+                    child: Custom1(
+                      name: fetchedAds["data"][index]["title"],
+                      price: fetchedAds["data"][index]["price"],
+                      description: fetchedAds["data"][index]["description"],
+                      image: fetchedAds["data"][index]["images"],
+                    ),
+                  );
+                }),
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          })),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, createAdPage);
